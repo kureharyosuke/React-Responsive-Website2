@@ -2,36 +2,57 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FcFlashOn } from "react-icons/fc";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { Button } from "./Button";
+import "./Navbar.css";
 
 function Navbar() {
   const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!click);
 
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
   return (
     <>
-      <div className="navbar">
-        <div className="navbar-container">
-          <Link to="/" className="navbar-logo">
+      <nav className="navbar">
+        <div className="navbar-container container">
+          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             TOLAB
             <FcFlashOn className="navbar-icon" />
           </Link>
           <div className="menu-icon" onClick={handleClick}>
             {click ? <FaTimes /> : <FaBars />}
           </div>
-          <ul className={click ? "nav-menu active" : "nav menu"}>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <Link to="/" className="nav-links">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/services" className="nav-links">
+              <Link
+                to="/services"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Services
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/products" className="nav-links">
+              <Link
+                to="/products"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
                 Products
               </Link>
             </li>
@@ -42,7 +63,11 @@ function Navbar() {
                 </Link>
               ) : (
                 <Link to="/sign-up" className="btn-link">
-                  <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
+                  <Button
+                    buttonStyle="btn--outline"
+                    buttonSize="btn--mobile"
+                    onClick={closeMobileMenu}
+                  >
                     SIGN UP
                   </Button>
                 </Link>
@@ -50,7 +75,7 @@ function Navbar() {
             </li>
           </ul>
         </div>
-      </div>
+      </nav>
     </>
   );
 }
