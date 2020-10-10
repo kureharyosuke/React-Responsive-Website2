@@ -76,7 +76,7 @@ function Footer() {
               <FcFlashOn className="navbar-icon" />
             </Link>
           </div>
-          <small className="website-rights">LAVISH © 2020</small>
+          <small className="website-rights">PARTNER © 2020</small>
           <div className="social-icons">
             <Link
               className="social-icon-link"
