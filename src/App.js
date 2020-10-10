@@ -7,10 +7,12 @@ import Services from "./components/pages/Services/Services";
 import Products from "./components/pages/Products/Products";
 import SignUp from "./components/pages/SignUp/SignUp";
 import Footer from "./components/pages/Footer/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />

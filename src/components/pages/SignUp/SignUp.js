@@ -1,11 +1,14 @@
 import React from "react";
 import HeroSection from "../../HeroSection";
 import Pricing from "../../Pricing";
-import { homeObjThree } from "../HomePage/Data";
+
+import { homeObjOne, homeObjTwo, homeObjThree } from "../SignUp/Data";
 
 function SignUp() {
   return (
     <>
+      {/* <HeroSection {...homeObjOne} /> */}
+      <HeroSection {...homeObjTwo} />
       <HeroSection {...homeObjThree} />
       <Pricing />
     </>
